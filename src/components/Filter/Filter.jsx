@@ -1,11 +1,12 @@
-import { nanoid } from 'nanoid';
 import { FilterStyle, IconSearch, Input, InputWrap } from './Filter.styled';
-import { useDispatch } from 'react-redux';
-import { filteredContacts } from 'redux/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { filteredContacts, selectFilter } from 'redux/filter/filterSlice';
+import { useId } from 'react';
 
 export function Filter() {
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const inputId = nanoid();
+  const inputId = useId();
 
   return (
     <>
@@ -14,6 +15,7 @@ export function Filter() {
         <Input
           type="text"
           placeholder="Name"
+          value={filter}
           onChange={e => dispatch(filteredContacts(e.currentTarget.value))}
           id={inputId}
         />

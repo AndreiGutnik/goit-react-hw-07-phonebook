@@ -5,8 +5,8 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
-import { selectEroor, selectLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
+import { selectEroor, selectLoading } from 'redux/contacts/contactsSlice';
+import { fetchContacts } from 'redux/contacts/operations';
 import { Loader } from './Loader';
 import { Error } from './Error/Error';
 
@@ -25,7 +25,7 @@ export const App = () => {
       <ContactForm />
       {isLoading && !isError && <Loader />}
       {isError && <Error />}
-      {!isLoading && !isError && (
+      {!isError && (
         <>
           <h2>Contacts</h2>
           <Filter />

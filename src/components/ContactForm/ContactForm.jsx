@@ -1,5 +1,4 @@
 import Notiflix from 'notiflix';
-import { nanoid } from 'nanoid';
 import { Formik, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import {
@@ -12,8 +11,9 @@ import {
   FormText,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contacts/operations';
+import { useId } from 'react';
 
 const initialValues = {
   name: '',
@@ -40,8 +40,8 @@ const validationScheme = object().shape({
 });
 
 export const ContactForm = ({ onSubmit }) => {
-  const labelNameId = nanoid();
-  const labelNumberId = nanoid();
+  const labelNameId = useId();
+  const labelNumberId = useId();
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
