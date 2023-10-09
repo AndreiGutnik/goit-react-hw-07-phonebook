@@ -13,13 +13,13 @@ export const handleRejected = (state, action) => {
   state.isError = action.payload;
 };
 
-export const handleAddFulfilled = (state, action) => {
+export const handleAddContactFulfilled = (state, action) => {
   state.isLoading = false;
   state.isError = null;
   state.contacts.push(action.payload);
 };
 
-export const handleDeleteFulfilled = (state, action) => {
+export const handleDeleteContactFulfilled = (state, action) => {
   state.isLoading = false;
   state.isError = null;
   const index = state.contacts.findIndex(

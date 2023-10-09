@@ -1,9 +1,11 @@
 import { deleteContact } from 'redux/operations';
 import { ContacItem, Text, Button } from './ContactItem.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLoading } from 'redux/selectors';
 
 export function ContactItem({ contact: { id, name, number } }) {
   const dispatch = useDispatch();
+  const isLoading = useSelector(getLoading);
 
   return (
     <ContacItem>
@@ -14,6 +16,7 @@ export function ContactItem({ contact: { id, name, number } }) {
         type="button"
         data-id={id}
         onClick={() => dispatch(deleteContact(id))}
+        disabled={isLoading}
       >
         Delete
       </Button>

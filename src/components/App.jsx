@@ -7,6 +7,8 @@ import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
 import { getEroor, getLoading } from 'redux/selectors';
 import { getContacts } from 'redux/operations';
+import { Loader } from './Loader';
+import { Error } from './Error/Error';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,11 +23,15 @@ export const App = () => {
     <Layout>
       <h1>Phonebook</h1>
       <ContactForm />
-      {isLoading && !isError && <p>Loading ...</p>}
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-
+      {isLoading && !isError && <Loader />}
+      {isError && <Error />}
+      {!isLoading && !isError && (
+        <>
+          <h2>Contacts</h2>
+          <Filter />
+          <ContactList />
+        </>
+      )}
       <GlobalStyle />
     </Layout>
   );

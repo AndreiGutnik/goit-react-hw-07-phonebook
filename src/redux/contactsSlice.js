@@ -4,8 +4,8 @@ import {
   handleFulfilled,
   handlePanding,
   handleRejected,
-  handleAddFulfilled,
-  handleDeleteFulfilled,
+  handleAddContactFulfilled,
+  handleDeleteContactFulfilled,
 } from './hendlers';
 
 const contactsSlice = createSlice({
@@ -21,13 +21,12 @@ const contactsSlice = createSlice({
       .addCase(getContacts.fulfilled, handleFulfilled)
       .addCase(getContacts.rejected, handleRejected)
       .addCase(addContact.pending, handlePanding)
-      .addCase(addContact.fulfilled, handleAddFulfilled)
+      .addCase(addContact.fulfilled, handleAddContactFulfilled)
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePanding)
-      .addCase(deleteContact.fulfilled, handleDeleteFulfilled)
+      .addCase(deleteContact.fulfilled, handleDeleteContactFulfilled)
       .addCase(deleteContact.rejected, handleRejected);
   },
 });
 
-// export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
