@@ -1,4 +1,4 @@
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 import { ContacItem, Text, Button } from './ContactItem.styled';
 import { useDispatch } from 'react-redux';
 

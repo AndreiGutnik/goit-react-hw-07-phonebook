@@ -1,7 +1,7 @@
 import { PhonebookList } from './ContactList.styled';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 import { getFilter } from 'redux/filterSlice';
 
 export function ContactList() {
