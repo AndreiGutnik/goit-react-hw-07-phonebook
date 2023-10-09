@@ -12,7 +12,7 @@ import {
   FormText,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
 const initialValues = {
@@ -42,7 +42,7 @@ const validationScheme = object().shape({
 export const ContactForm = ({ onSubmit }) => {
   const labelNameId = nanoid();
   const labelNumberId = nanoid();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const onSubmitForm = ({ name, number }, { resetForm }) => {

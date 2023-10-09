@@ -14,7 +14,7 @@ const createContactAsyncThunk = (name, asyncFn) =>
     }
   });
 
-export const getContacts = createContactAsyncThunk('getContacts', () =>
+export const fetchContacts = createContactAsyncThunk('getContacts', () =>
   axios.get('/contacts')
 );
 export const addContact = createContactAsyncThunk('addContact', contact =>

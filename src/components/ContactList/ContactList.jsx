@@ -1,10 +1,10 @@
 import { PhonebookList } from './ContactList.styled';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-import { getContacts, selectFilteredContacts } from 'redux/selectors';
+import { selectContacts, selectFilteredContacts } from 'redux/selectors';
 
 export function ContactList() {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const filteredContacts = useSelector(selectFilteredContacts);
 
   if (!contacts.length) return <p>The Phonebook is empty!</p>;

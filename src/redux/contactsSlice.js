@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addContact, deleteContact, getContacts } from './operations';
+import { addContact, deleteContact, fetchContacts } from './operations';
 import {
   handleFulfilled,
   handlePanding,
@@ -17,9 +17,9 @@ const contactsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(getContacts.pending, handlePanding)
-      .addCase(getContacts.fulfilled, handleFulfilled)
-      .addCase(getContacts.rejected, handleRejected)
+      .addCase(fetchContacts.pending, handlePanding)
+      .addCase(fetchContacts.fulfilled, handleFulfilled)
+      .addCase(fetchContacts.rejected, handleRejected)
       .addCase(addContact.pending, handlePanding)
       .addCase(addContact.fulfilled, handleAddContactFulfilled)
       .addCase(addContact.rejected, handleRejected)

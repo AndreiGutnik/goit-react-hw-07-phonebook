@@ -5,18 +5,18 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
-import { getEroor, getLoading } from 'redux/selectors';
-import { getContacts } from 'redux/operations';
+import { selectEroor, selectLoading } from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
 import { Loader } from './Loader';
 import { Error } from './Error/Error';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getLoading);
-  const isError = useSelector(getEroor);
+  const isLoading = useSelector(selectLoading);
+  const isError = useSelector(selectEroor);
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
